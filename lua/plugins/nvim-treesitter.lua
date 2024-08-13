@@ -10,6 +10,7 @@ return {
         "dockerfile",
         "rust",
         "sql",
+        "terraform",
       })
     end,
   },
