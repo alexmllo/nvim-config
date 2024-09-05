@@ -6,3 +6,6 @@ local map = vim.keymap.set
 -- Comment
 map("n", "<leader>/", "gcc", { desc = "Toggle Comment", remap = true })
 map("v", "<leader>/", "gc", { desc = "Toggle comment", remap = true })
+
+-- Delete keymaps
+vim.keymap.del("n", "<leader>K")
