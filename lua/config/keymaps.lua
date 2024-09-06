@@ -4,6 +4,7 @@
 
 local map = vim.keymap.set
 local Util = require("lazyvim.util")
+local opts = { noremap = true, silent = true }
 
 map("n", "<C-h>", "<Cmd>NvimTmuxNavigateLeft<CR>", { silent = true })
 map("n", "<C-j>", "<Cmd>NvimTmuxNavigateDown<CR>", { silent = true })
@@ -25,9 +26,19 @@ map("v", "<leader>/", "gc", { desc = "Toggle comment", remap = true, silent = tr
 -- Delete keymaps
 vim.keymap.del("n", "<leader>K")
 
+-- New tab
+map("n", "te", ":tabedit")
+map("n", "<tab>", ":tabnext<Return>", opts)
+map("n", "<s-tab>", ":tabprev<Return>", opts)
+
 -- Split windows
 map("n", "ss", ":vsplit<Return>", { noremap = true, silent = true })
 map("n", "sv", ":split<Return>", { noremap = true, silent = true })
+
+-- Resize window
+map("n", "<C-w><right>", "<C-w>>")
+map("n", "<C-w><up>", "<C-w>+")
+map("n", "<C-w><down>", "<C-w>-")
 
 -- Borderless terminal
 vim.keymap.set("n", "<C-t>", function()
