@@ -3,7 +3,6 @@
 -- Add any additional options here
 local opt = vim.opt
 
-opt.title = true
 opt.autoindent = true
 opt.hlsearch = true
 opt.scrolloff = 10

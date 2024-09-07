@@ -143,21 +143,67 @@ return {
     },
 
     -- statusline
+    -- {
+    --     "nvim-lualine/lualine.nvim",
+    --     opts = function(_, opts)
+    --         local LazyVim = require("lazyvim.util")
+    --         opts.sections.lualine_c[4] = {
+    --             LazyVim.lualine.pretty_path({
+    --                 length = 0,
+    --                 relative = "cwd",
+    --                 modified_hl = "MatchParen",
+    --                 directory_hl = "",
+    --                 filename_hl = "Bold",
+    --                 modified_sign = "",
+    --                 readonly_icon = " 󰌾 ",
+    --             }),
+    --         }
+    --     end,
+    -- },
+
     {
         "nvim-lualine/lualine.nvim",
-        opts = function(_, opts)
-            local LazyVim = require("lazyvim.util")
-            opts.sections.lualine_c[4] = {
-                LazyVim.lualine.pretty_path({
-                    length = 0,
-                    relative = "cwd",
-                    modified_hl = "MatchParen",
-                    directory_hl = "",
-                    filename_hl = "Bold",
-                    modified_sign = "",
-                    readonly_icon = " 󰌾 ",
-                }),
-            }
-        end,
+        event = "VeryLazy",
+        opts = {
+            options = {
+                theme = "solarized_dark",
+            },
+        },
+    },
+
+    {
+        "nvimdev/dashboard-nvim",
+        event = "VimEnter",
+        opts = {
+            theme = "hyper",
+            config = {
+                week_header = {
+                    enable = true,
+                },
+                shortcut = {
+                    { desc = "󰊳 Update", group = "@property", action = "Lazy update", key = "u" },
+                    {
+                        icon = " ",
+                        icon_hl = "@variable",
+                        desc = "Files",
+                        group = "Label",
+                        action = "Telescope find_files",
+                        key = "f",
+                    },
+                    {
+                        desc = " Apps",
+                        group = "DiagnosticHint",
+                        action = "Telescope app",
+                        key = "a",
+                    },
+                    {
+                        desc = " dotfiles",
+                        group = "Number",
+                        action = "Telescope dotfiles",
+                        key = "d",
+                    },
+                },
+            },
+        },
     },
 }
