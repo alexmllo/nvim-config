@@ -1,12 +1,4 @@
 return {
-    {
-        "lukas-reineke/virt-column.nvim",
-        opts = {
-            char = { "┆" },
-            virtcolumn = "80",
-            highlight = { "NonText" },
-        },
-    },
     -- messages, cmdline and the popupmenu
     {
         "folke/noice.nvim",
