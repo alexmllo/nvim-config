@@ -136,6 +136,17 @@ return {
     -- },
 
     {
+        "folke/twilight.nvim",
+        opts = {
+            dimming = {
+                alpha = 0.25, -- Amount of dimming (0.0 - no dimming, 1.0 - full dimming)
+                inactive = true, -- Whether to dim inactive splits/windows
+            },
+            context = 10, -- Amount of visible lines around the cursor
+        },
+    },
+
+    {
         "folke/zen-mode.nvim",
         cmd = "ZenMode",
         opts = {

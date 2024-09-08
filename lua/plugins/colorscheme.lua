@@ -1,31 +1,77 @@
 -- return {
 --     {
---         "LazyVim/LazyVim",
+--         "craftzdog/solarized-osaka.nvim",
+--         lazy = true,
+--         priority = 1000,
 --         opts = {
---             colorscheme = "catppuccin",
+--             transparent = true,
 --         },
 --     },
---     -- modicator (auto color line number based on vim mode)
+-- }
+
+-- return {
 --     {
---         "mawkler/modicator.nvim",
---         dependencies = "catppuccin",
---         init = function()
---             -- These are required for Modicator to work
---             vim.o.cursorline = false
---             vim.o.number = true
---             vim.o.termguicolors = true
---         end,
---         opts = {},
+--         "catppuccin/nvim",
+--         opts = {
+--             transparent_background = true,
+--         },
 --     },
+--
+--     {
+--         "LazyVim/LazyVim",
+--         opts = {
+--             colorscheme = "catppuccin-macchiato",
+--         },
+--     },
+-- }
+
+-- return {
+--     "maxmx03/solarized.nvim",
+--     lazy = false,
+--     priority = 1000,
+--     ---@type solarized.config
+--     opts = {
+--         transparent = {
+--             enabled = true,
+--         },
+--     },
+--     config = function(_, opts)
+--         vim.o.termguicolors = true
+--         vim.o.background = "dark"
+--         require("solarized").setup(opts)
+--         vim.cmd.colorscheme("solarized")
+--     end,
 -- }
 
 return {
     {
-        "craftzdog/solarized-osaka.nvim",
+        "folke/tokyonight.nvim",
         lazy = true,
-        priority = 1000,
         opts = {
+            style = "moon",
             transparent = true,
+            styles = {
+                sidebars = "transparent",
+                floats = "transparent",
+            },
+            dim_inactive = true,
+        },
+    },
+    {
+        "LazyVim/LazyVim",
+        opts = {
+            colorscheme = "tokyonight",
         },
     },
 }
+
+-- return {
+--     {
+--         "Tsuzat/NeoSolarized.nvim",
+--         lazy = false, -- make sure we load this during startup if it is your main colorscheme
+--         priority = 1000, -- make sure to load this before all the other start plugins
+--         config = function()
+--             vim.cmd([[ colorscheme NeoSolarized ]])
+--         end,
+--     },
+-- }
