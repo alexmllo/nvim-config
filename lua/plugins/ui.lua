@@ -43,17 +43,17 @@ return {
             opts.presets.lsp_doc_border = true
         end,
     },
-    {
-        "j-hui/fidget.nvim",
-        opts = {
-            notification = {
-                window = {
-                    winblend = 0,
-                    border = "rounded",
-                },
-            },
-        },
-    },
+    -- {
+    --     "j-hui/fidget.nvim",
+    --     opts = {
+    --         notification = {
+    --             window = {
+    --                 winblend = 0,
+    --                 border = "rounded",
+    --             },
+    --         },
+    --     },
+    -- },
 
     -- filename
     {
@@ -72,7 +72,7 @@ return {
                 },
                 window = { margin = { vertical = 0, horizontal = 1 } },
                 hide = {
-                    cursorline = true,
+                    cursorline = false,
                 },
                 render = function(props)
                     local filename = vim.fn.fnamemodify(vim.api.nvim_buf_get_name(props.buf), ":t")
@@ -109,7 +109,8 @@ return {
     {
         "nvim-lualine/lualine.nvim",
         opts = function(_, opts)
-            opts.options.theme = "solarized_dark"
+            -- opts.options.theme = "solarized_dark"
+            opts.options.theme = "tokyonight-night"
             local LazyVim = require("lazyvim.util")
             opts.sections.lualine_c[4] = {
                 LazyVim.lualine.pretty_path({
