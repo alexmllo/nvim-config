@@ -1,116 +1,152 @@
--- return {
---     {
---         "craftzdog/solarized-osaka.nvim",
---         lazy = true,
---         priority = 1000,
---         config = function()
---             require("solarized-osaka").setup({
---                 transparent = true,
---             })
---         end,
---     },
--- }
-
--- return {
---     {
---         "catppuccin/nvim",
---         opts = {
---             transparent_background = true,
---         },
---     },
---
---     {
---         "LazyVim/LazyVim",
---         opts = {
---             colorscheme = "catppuccin-frappe",
---         },
---     },
--- }
-
--- return {
---     "craftzdog/solarized-osaka.nvim",
---     lazy = false,
---     priority = 1000,
---     opts = {},
---     config = function()
---         -- Colorscheme Solarized Osaka by Takuya Matsuyama (https://github.com/craftzdog/solarized-osaka.nvim)
---         require("solarized-osaka").setup({
---             -- your configuration comes here
---             -- or leave it empty to use the default settings
---             transparent = true, -- Enable this to disable setting the background color
---             terminal_colors = true, -- Configure the colors used when opening a `:terminal` in [Neovim](https://github.com/neovim/neovim)
---             styles = {
---                 -- Style to be applied to different syntax groups
---                 -- Value is any valid attr-list value for `:help nvim_set_hl`
---                 comments = { italic = true },
---                 keywords = { italic = true },
---                 -- Background styles. Can be "dark", "transparent" or "normal"
---                 sidebars = "transparent", -- style for sidebars, see below
---                 floats = "transparent", -- style for floating windows
---             },
---             sidebars = { "qf", "help" }, -- Set a darker background on sidebar-like windows. For example: `["qf", "vista_kind", "terminal", "packer"]`
---             day_brightness = 0.3, -- Adjusts the brightness of the colors of the **Day** style. Number between 0 and 1, from dull to vibrant colors
---             hide_inactive_statusline = false, -- Enabling this option, will hide inactive statuslines and replace them with a thin border instead. Should work with the standard **StatusLine** and **LuaLine**.
---             dim_inactive = true, -- dims inactive windows
---             lualine_bold = true, -- When `true`, section headers in the lualine theme will be bold
---         })
---
---         -- setup must be called before loading
---         vim.cmd.colorscheme("solarized-osaka")
---     end,
--- }
-
--- return {
---     "maxmx03/solarized.nvim",
---     lazy = false,
---     priority = 1000,
---     ---@type solarized.config
---     opts = {
---         transparent = {
---             enabled = true,
---         },
---     },
---     config = function(_, opts)
---         vim.o.termguicolors = true
---         vim.o.background = "dark"
---         require("solarized").setup(opts)
---         vim.cmd.colorscheme("solarized")
---     end,
--- }
+local palette = require("catppuccin.palettes").get_palette("macchiato") -- Import your favorite catppuccin colors
 
 return {
     {
-        "folke/tokyonight.nvim",
-        lazy = true,
+        "catppuccin/nvim",
+        lazy = false,
+        name = "catppuccin",
         opts = {
-            style = "night",
-            transparent = true,
             styles = {
-                sidebars = "transparent",
-                floats = "transparent",
+                comments = { "italic" },
             },
-            on_highlights = function(hl, c)
-                -- Set transparency for CMP
-                hl.CmpPmenu = { bg = "NONE" }
-                hl.CmpPmenuSel = { bg = c.bg_highlight, fg = c.fg, bold = true }
+            background = {
+                light = "latte",
+                dark = "macchiato",
+            },
+            term_colors = true,
+            custom_highlights = function()
+                return {
+                    FloatermBorder = { fg = palette.base },
+                    TelescopeMatching = { fg = palette.blue },
+                    TelescopeSelection = { fg = palette.text, bg = palette.surface0, bold = true },
+                    TelescopePromptPrefix = { bg = palette.surface0 },
+                    TelescopePromptNormal = { bg = palette.surface0 },
+                    TelescopeResultsNormal = { bg = palette.mantle },
+                    TelescopePreviewNormal = { bg = palette.mantle },
+                    TelescopePromptBorder = { bg = palette.surface0, fg = palette.surface0 },
+                    TelescopeResultsBorder = { bg = palette.mantle, fg = palette.mantle },
+                    TelescopePreviewBorder = { bg = palette.mantle, fg = palette.mantle },
+                    TelescopePromptTitle = { bg = palette.red, fg = palette.mantle },
+                    TelescopeResultsTitle = { fg = palette.mantle },
+                    TelescopePreviewTitle = { bg = palette.green, fg = palette.mantle },
+                }
             end,
+            integrations = {
+                alpha = true,
+                cmp = true,
+                barbecue = {
+                    dim_dirname = true, -- directory name is dimmed by default
+                    bold_basename = true,
+                    dim_context = false,
+                    alt_background = false,
+                },
+                colorful_winsep = {
+                    enabled = true,
+                    color = "lavender",
+                },
+                dap = true,
+                dap_ui = true,
+                dashboard = true,
+                diffview = true,
+                flash = true,
+                headlines = true,
+                gitsigns = true,
+                grug_far = true,
+                harpoon = false,
+                illuminate = true,
+                indent_blankline = {
+                    enabled = true,
+                    scope_color = "lavender", -- catppuccin color (eg. `lavender`) Default: text
+                    colored_indent_levels = false,
+                },
+                render_markdown = true,
+                mason = true,
+                markdown = true,
+                mini = true,
+                native_lsp = {
+                    enabled = true,
+                    virtual_text = {
+                        errors = { "italic" },
+                        hints = { "italic" },
+                        warnings = { "italic" },
+                        information = { "italic" },
+                    },
+                    underlines = {
+                        errors = { "underline" },
+                        hints = { "underline" },
+                        warnings = { "underline" },
+                        information = { "underline" },
+                    },
+                    inlay_hints = {
+                        background = true,
+                    },
+                },
+                lsp_trouble = false,
+                navic = { enabled = false, custom_bg = "lualine" },
+                neotest = true,
+                neogit = false,
+                neotree = true,
+                notify = true,
+                noice = true,
+                ufo = true,
+                overseer = false,
+                octo = false,
+                rainbow_delimiters = true,
+                semantic_tokens = true,
+                telescope = {
+                    enabled = true,
+                },
+                symbols_outline = false,
+                treesitter = true,
+                treesitter_context = false,
+                which_key = true,
+            },
         },
     },
     {
-        "LazyVim/LazyVim",
+        "akinsho/bufferline.nvim",
         opts = {
-            colorscheme = "tokyonight",
+            highlights = require("catppuccin.groups.integrations.bufferline").get({
+                styles = { "italic", "bold" },
+                custom = {
+                    all = {
+                        fill = {
+                            bg = palette.mantle,
+                        },
+                        separator_selected = {
+                            bg = palette.base,
+                            fg = palette.mantle,
+                        },
+                        separator = {
+                            bg = palette.mantle,
+                            fg = palette.mantle,
+                        },
+                        tab_separator = {
+                            bg = palette.mantle,
+                            fg = palette.mantle,
+                        },
+                        tab_selected = {
+                            bg = palette.base,
+                        },
+                        tab_separator_selected = {
+                            bg = palette.base,
+                            fg = palette.mantle,
+                        },
+                    },
+                },
+            }),
+        },
+    },
+    {
+        "rachartier/tiny-devicons-auto-colors.nvim",
+        optional = true,
+        opts = {
+            colors = palette,
+            factors = {
+                lightness = 0.9,
+                chroma = 1,
+                hue = 0.7,
+            },
         },
     },
 }
-
--- return {
---     {
---         "Tsuzat/NeoSolarized.nvim",
---         lazy = false, -- make sure we load this during startup if it is your main colorscheme
---         priority = 1000, -- make sure to load this before all the other start plugins
---         config = function()
---             vim.cmd([[ colorscheme NeoSolarized ]])
---         end,
---     },
--- }

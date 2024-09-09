@@ -43,17 +43,22 @@ return {
             opts.presets.lsp_doc_border = true
         end,
     },
-    -- {
-    --     "j-hui/fidget.nvim",
-    --     opts = {
-    --         notification = {
-    --             window = {
-    --                 winblend = 0,
-    --                 border = "rounded",
-    --             },
-    --         },
-    --     },
-    -- },
+
+    {
+        "j-hui/fidget.nvim",
+        event = "LspAttach",
+        opts = {},
+    },
+
+    {
+        "rcarriga/nvim-notify",
+        opts = {
+            fps = 75,
+            stages = "slide",
+            render = "wrapped-compact",
+            timeout = 2000,
+        },
+    },
 
     -- filename
     {
@@ -72,7 +77,7 @@ return {
                 },
                 window = { margin = { vertical = 0, horizontal = 1 } },
                 hide = {
-                    cursorline = false,
+                    cursorline = true,
                 },
                 render = function(props)
                     local filename = vim.fn.fnamemodify(vim.api.nvim_buf_get_name(props.buf), ":t")
@@ -87,54 +92,85 @@ return {
         end,
     },
 
-    -- bufferline
+    -- Dropbar
     {
-        "akinsho/bufferline.nvim",
-        event = "VeryLazy",
-        keys = {
-            { "<Tab>", "<Cmd>BufferLineCycleNext<CR>", desc = "Next tab" },
-            { "<S-Tab>", "<Cmd>BufferLineCyclePrev<CR>", desc = "Prev tab" },
-        },
+        "Bekaboo/dropbar.nvim",
+        event = "LazyFile",
         opts = {
-            options = {
-                mode = "tabs",
-                -- separator_style = "slant",
-                show_buffer_close_icons = false,
-                show_close_icon = false,
+            sources = {
+                terminal = {
+                    name = "",
+                },
             },
         },
     },
 
-    -- statusline
+    -- buferline
     {
-        "nvim-lualine/lualine.nvim",
-        opts = function(_, opts)
-            -- opts.options.theme = "solarized_dark"
-            opts.options.theme = "tokyonight-night"
-            local LazyVim = require("lazyvim.util")
-            opts.sections.lualine_c[4] = {
-                LazyVim.lualine.pretty_path({
-                    length = 0,
-                    relative = "cwd",
-                    modified_hl = "MatchParen",
-                    directory_hl = "",
-                    filename_hl = "Bold",
-                    modified_sign = "",
-                    readonly_icon = " 󰌾 ",
-                }),
-            }
-        end,
+        "akinsho/bufferline.nvim",
+        opts = {
+            options = {
+                modified_icon = "",
+                color_icons = true,
+                separator_style = "slope",
+            },
+        },
     },
 
-    -- {
-    --     "nvim-lualine/lualine.nvim",
-    --     event = "VeryLazy",
-    --     opts = {
-    --         options = {
-    --             theme = "solarized_dark",
-    --         },
-    --     },
-    -- },
+    {
+        "nvim-zh/colorful-winsep.nvim",
+        event = { "WinNew", "WinLeave" },
+        opts = {
+            no_exec_files = {
+                "packer",
+                "TelescopePrompt",
+                "CompetiTest",
+                "netrw",
+                "NvimTree",
+                "lazy",
+                "mason",
+                "oil",
+                "neo-tree",
+                "symbols-outline",
+                "vim-be-good",
+                "oil",
+                "outline",
+                "trouble",
+                "startuptime",
+                "packer",
+                "spectre",
+                "alpha",
+                "edgy",
+            },
+        },
+    },
+
+    {
+        "OXY2DEV/helpview.nvim",
+        ft = "help",
+        opts = {},
+    },
+
+    {
+        "tzachar/highlight-undo.nvim",
+        event = "LazyFile",
+        vscode = true,
+        opts = {
+            duration = 700,
+        },
+    },
+
+    {
+        "fei6409/log-highlight.nvim",
+        ft = "log",
+        opts = {},
+    },
+
+    {
+        "mvllow/modes.nvim",
+        event = "VeryLazy",
+        opts = {},
+    },
 
     {
         "folke/twilight.nvim",
@@ -161,37 +197,21 @@ return {
 
     {
         "nvimdev/dashboard-nvim",
-        event = "VimEnter",
-        opts = {
-            theme = "hyper",
-            config = {
-                week_header = {
-                    enable = true,
-                },
-                shortcut = {
-                    { desc = "󰊳 Update", group = "@property", action = "Lazy update", key = "u" },
-                    {
-                        icon = " ",
-                        icon_hl = "@variable",
-                        desc = "Files",
-                        group = "Label",
-                        action = "Telescope find_files",
-                        key = "f",
-                    },
-                    {
-                        desc = " Apps",
-                        group = "DiagnosticHint",
-                        action = "Telescope app",
-                        key = "a",
-                    },
-                    {
-                        desc = " dotfiles",
-                        group = "Number",
-                        action = "Telescope dotfiles",
-                        key = "d",
-                    },
-                },
-            },
-        },
+        opts = function(_, opts)
+            local logo = [[
+                                                                   
+      ████ ██████           █████      ██                    
+     ███████████             █████                            
+     █████████ ███████████████████ ███   ███████████  
+    █████████  ███    █████████████ █████ ██████████████  
+   █████████ ██████████ █████████ █████ █████ ████ █████  
+ ███████████ ███    ███ █████████ █████ █████ ████ █████ 
+██████  █████████████████████ ████ █████ █████ ████ ██████
+      ]]
+
+            logo = string.rep("\n", 8) .. logo .. "\n\n"
+            opts.config.header = vim.split(logo, "\n")
+            return opts
+        end,
     },
 }
