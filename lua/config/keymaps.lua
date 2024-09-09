@@ -35,11 +35,6 @@ map("n", "<s-tab>", ":tabprev<Return>", opts)
 map("n", "ss", ":vsplit<Return>", { noremap = true, silent = true })
 map("n", "sv", ":split<Return>", { noremap = true, silent = true })
 
--- Resize window
-map("n", "<C-w><right>", "<C-w>>")
-map("n", "<C-w><up>", "<C-w>+")
-map("n", "<C-w><down>", "<C-w>-")
-
 -- Borderless terminal
 vim.keymap.set("n", "<C-t>", function()
     Util.terminal(nil, { border = "none" })
