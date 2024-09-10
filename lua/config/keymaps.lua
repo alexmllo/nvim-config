@@ -35,6 +35,12 @@ map("n", "<s-tab>", ":tabprev<Return>", opts)
 map("n", "ss", ":vsplit<Return>", { noremap = true, silent = true })
 map("n", "sv", ":split<Return>", { noremap = true, silent = true })
 
+-- Select all text
+map("n", "<C-e>", "gg<S-V>G", { desc = "Select all Text", silent = true, noremap = true })
+
+-- End of the word backwards
+map("n", "E", "ge")
+
 -- Borderless terminal
 vim.keymap.set("n", "<C-t>", function()
     Util.terminal(nil, { border = "none" })
