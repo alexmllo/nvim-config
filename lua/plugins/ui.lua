@@ -44,11 +44,11 @@ return {
         end,
     },
 
-    {
-        "j-hui/fidget.nvim",
-        event = "LspAttach",
-        opts = {},
-    },
+    -- {
+    --     "j-hui/fidget.nvim",
+    --     event = "LspAttach",
+    --     opts = {},
+    -- },
 
     {
         "rcarriga/nvim-notify",
