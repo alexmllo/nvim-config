@@ -1,5 +1,3 @@
-local cmp = require("cmp")
-
 return {
     "hrsh7th/nvim-cmp",
     dependencies = {
@@ -33,31 +31,5 @@ return {
             async_budget = 1,
             max_view_entries = 50,
         }
-
-        cmp.setup.cmdline({ "/", "?" }, {
-            mapping = cmp.mapping.preset.cmdline({
-                ["<C-j>"] = {
-                    c = function(fallback)
-                        if cmp.visible() then
-                            cmp.select_next_item()
-                        else
-                            fallback()
-                        end
-                    end,
-                },
-                ["<C-k>"] = {
-                    c = function(fallback)
-                        if cmp.visible() then
-                            cmp.select_prev_item()
-                        else
-                            fallback()
-                        end
-                    end,
-                },
-            }),
-            sources = {
-                { name = "buffer" },
-            },
-        })
     end,
 }
