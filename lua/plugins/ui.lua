@@ -127,8 +127,29 @@ return {
         "akinsho/bufferline.nvim",
         opts = {
             options = {
-                show_buffer_close_icons = false,
-                show_close_icon = false,
+                -- indicator_icon = "│",
+                -- indicator_icon = "▎",
+                buffer_close_icon = "",
+                -- buffer_close_icon = '',
+                modified_icon = "●",
+                close_icon = "",
+                -- close_icon = '',
+                left_trunc_marker = "",
+                right_trunc_marker = "",
+                separator_style = "thin",
+            },
+            highlights = {
+                fill = {
+                    bg = "#1e1e2e",
+                },
+                tab = {
+                    bg = "#1e1e2e",
+                },
+                buffer_selected = {
+                    bg = "#1e1e2e",
+                    bold = true,
+                    italic = true,
+                },
             },
         },
     },
