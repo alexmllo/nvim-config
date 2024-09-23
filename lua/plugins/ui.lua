@@ -97,11 +97,16 @@ return {
         "Bekaboo/dropbar.nvim",
         event = "LazyFile",
         opts = {
-            sources = {
-                terminal = {
-                    name = "",
-                },
+            theme = "catppuccin",
+            options = {
+                component_separators = " ",
+                section_separators = { left = "", right = "" },
             },
+            -- sources = {
+            --     terminal = {
+            --         name = "",
+            --     },
+            -- },
         },
     },
 
@@ -137,21 +142,77 @@ return {
                 left_trunc_marker = "",
                 right_trunc_marker = "",
                 separator_style = "thin",
+                always_show_bufferline = true,
+                offsets = {
+                    {
+                        filetype = "neo-tree",
+                        text = "File Explorer",
+                        text_align = "center",
+                        highlight = "Directory",
+                        padding = 0,
+                    },
+                    {
+                        filetype = "aerial",
+                        text = "Symbol Outline",
+                        text_align = "center",
+                        padding = 0,
+                    },
+                    {
+                        filetype = "dbui",
+                        text = "Databases",
+                        text_align = "center",
+                        padding = 0,
+                    },
+                },
             },
-            highlights = {
-                fill = {
-                    bg = "#1e1e2e",
+            highlights = require("catppuccin.groups.integrations.bufferline").get({
+                custom = {
+                    all = {
+                        fill = {
+                            bg = "#1e1e2e",
+                        },
+                    },
                 },
-                tab = {
-                    bg = "#1e1e2e",
-                },
-                buffer_selected = {
-                    bg = "#1e1e2e",
-                    bold = true,
-                    italic = true,
-                },
+            }),
+        },
+    },
+
+    {
+        "dstein64/nvim-scrollview",
+        opts = {
+            mode = "virtual",
+            winblend = 0,
+            signs_on_startup = { "diagnostics", "folds", "marks", "search", "spell" },
+            excluded_filetypes = {
+                "alpha",
+                "aerial",
+                "dbui",
+                "dashboard",
+                "fugitive",
+                "git",
+                "notify",
+                "neo-tree",
+                "Outline",
+                "TelescopePrompt",
+                "toggleterm",
+                "undotree",
             },
         },
+    },
+
+    {
+        "nvim-lualine/lualine.nvim",
+        opts = {
+            options = {
+                theme = "catppuccin",
+            },
+        },
+    },
+
+    {
+        "nvim-zh/colorful-winsep.nvim",
+        config = true,
+        event = { "WinLeave" },
     },
 
     {

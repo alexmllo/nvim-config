@@ -15,9 +15,9 @@ return {
         opts = {
             -- window = {
             --     position = "right",
-            --     mappings = {
-            --         ["Y"] = "none",
-            --     },
+            --     -- mappings = {
+            --     --     ["Y"] = "none",
+            --     -- },
             -- },
             filesystem = {
                 filtered_items = {
