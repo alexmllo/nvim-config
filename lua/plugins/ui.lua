@@ -178,38 +178,6 @@ return {
     },
 
     {
-        "dstein64/nvim-scrollview",
-        opts = {
-            mode = "virtual",
-            winblend = 0,
-            signs_on_startup = { "diagnostics", "folds", "marks", "search", "spell" },
-            excluded_filetypes = {
-                "alpha",
-                "aerial",
-                "dbui",
-                "dashboard",
-                "fugitive",
-                "git",
-                "notify",
-                "neo-tree",
-                "Outline",
-                "TelescopePrompt",
-                "toggleterm",
-                "undotree",
-            },
-        },
-    },
-
-    {
-        "nvim-lualine/lualine.nvim",
-        opts = {
-            options = {
-                theme = "catppuccin",
-            },
-        },
-    },
-
-    {
         "nvim-zh/colorful-winsep.nvim",
         config = true,
         event = { "WinLeave" },
