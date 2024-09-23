@@ -15,9 +15,6 @@ return {
         opts = {
             -- window = {
             --     position = "right",
-            --     -- mappings = {
-            --     --     ["Y"] = "none",
-            --     -- },
             -- },
             filesystem = {
                 filtered_items = {
@@ -37,5 +34,16 @@ return {
         "nacro90/numb.nvim",
         event = "CmdlineEnter",
         opts = {},
+    },
+
+    {
+        "stevearc/aerial.nvim",
+        opts = {
+            layout = {
+                max_width = { 40, 0.2 },
+                width = nil,
+                min_width = 20,
+            },
+        },
     },
 }

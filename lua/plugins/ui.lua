@@ -44,12 +44,6 @@ return {
         end,
     },
 
-    -- {
-    --     "j-hui/fidget.nvim",
-    --     event = "LspAttach",
-    --     opts = {},
-    -- },
-
     {
         "rcarriga/nvim-notify",
         opts = {
@@ -98,57 +92,26 @@ return {
         event = "LazyFile",
         opts = {
             theme = "catppuccin",
-            options = {
-                component_separators = " ",
-                section_separators = { left = "", right = "" },
-            },
-            -- sources = {
-            --     terminal = {
-            --         name = "",
-            --     },
-            -- },
         },
     },
-
-    -- buffer line
-    -- {
-    --     "akinsho/bufferline.nvim",
-    --     event = "VeryLazy",
-    --     keys = {
-    --         { "<Tab>", "<Cmd>BufferLineCycleNext<CR>", desc = "Next tab" },
-    --         { "<S-Tab>", "<Cmd>BufferLineCyclePrev<CR>", desc = "Prev tab" },
-    --     },
-    --     opts = {
-    --         options = {
-    --             mode = "tabs",
-    --             -- separator_style = "slant",
-    --             show_buffer_close_icons = false,
-    --             show_close_icon = false,
-    --         },
-    --     },
-    -- },
 
     {
         "akinsho/bufferline.nvim",
         opts = {
             options = {
-                -- indicator_icon = "│",
-                -- indicator_icon = "▎",
                 buffer_close_icon = "",
-                -- buffer_close_icon = '',
                 modified_icon = "●",
                 close_icon = "",
-                -- close_icon = '',
                 left_trunc_marker = "",
                 right_trunc_marker = "",
-                separator_style = "thin",
-                always_show_bufferline = true,
+                separator_style = "slant",
+                -- always_show_bufferline = true,
                 offsets = {
                     {
                         filetype = "neo-tree",
                         text = "File Explorer",
                         text_align = "center",
-                        highlight = "Directory",
+                        highlight = "FileExplorer",
                         padding = 0,
                     },
                     {
@@ -169,7 +132,11 @@ return {
                 custom = {
                     all = {
                         fill = {
-                            bg = "#1e1e2e",
+                            bg = "#11111b",
+                        },
+                        buffer_selected = {
+                            fg = "#f8f8f2",
+                            -- bg = "#313244",
                         },
                     },
                 },

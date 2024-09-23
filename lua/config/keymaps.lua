@@ -3,7 +3,6 @@
 -- Add any additional keymaps here
 
 local map = vim.keymap.set
-local Util = require("lazyvim.util")
 local opts = { noremap = true, silent = true }
 
 map("n", "<C-h>", "<Cmd>NvimTmuxNavigateLeft<CR>", { silent = true })
@@ -40,8 +39,3 @@ map("n", "<C-e>", "gg<S-V>G", { desc = "Select all Text", silent = true, noremap
 
 -- End of the word backwards
 map("n", "E", "ge")
-
--- Borderless terminal
-vim.keymap.set("n", "<C-t>", function()
-    Util.terminal(nil, { border = "none" })
-end, { desc = "Term with border" })
