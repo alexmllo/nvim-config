@@ -90,9 +90,7 @@ return {
     {
         "Bekaboo/dropbar.nvim",
         event = "LazyFile",
-        opts = {
-            theme = "catppuccin",
-        },
+        color_mode = true,
     },
 
     {
@@ -163,12 +161,6 @@ return {
         opts = {
             duration = 700,
         },
-    },
-
-    {
-        "fei6409/log-highlight.nvim",
-        ft = "log",
-        opts = {},
     },
 
     {
