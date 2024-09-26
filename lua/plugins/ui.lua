@@ -87,11 +87,11 @@ return {
     },
 
     -- Dropbar
-    {
-        "Bekaboo/dropbar.nvim",
-        event = "LazyFile",
-        color_mode = true,
-    },
+    -- {
+    --     "Bekaboo/dropbar.nvim",
+    --     event = "LazyFile",
+    --     color_mode = true,
+    -- },
 
     {
         "akinsho/bufferline.nvim",
@@ -102,7 +102,7 @@ return {
                 close_icon = "",
                 left_trunc_marker = "",
                 right_trunc_marker = "",
-                separator_style = "slant",
+                separator_style = "thin",
                 -- always_show_bufferline = true,
                 offsets = {
                     {
@@ -126,27 +126,33 @@ return {
                     },
                 },
             },
-            highlights = require("catppuccin.groups.integrations.bufferline").get({
-                custom = {
-                    all = {
-                        fill = {
-                            bg = "#11111b",
-                        },
-                        buffer_selected = {
-                            fg = "#f8f8f2",
-                            -- bg = "#313244",
-                        },
-                    },
+            highlights = {
+                buffer_selected = {
+                    fg = "#f8f8f2",
                 },
-            }),
+            },
+
+            -- highlights = require("catppuccin.groups.integrations.bufferline").get({
+            --     custom = {
+            --         all = {
+            --             fill = {
+            --                 bg = "#181926",
+            --             },
+            --             buffer_selected = {
+            --                 fg = "#f8f8f2",
+            --                 -- bg = "#313244",
+            --             },
+            --         },
+            --     },
+            -- }),
         },
     },
 
-    {
-        "nvim-zh/colorful-winsep.nvim",
-        config = true,
-        event = { "WinLeave" },
-    },
+    -- {
+    --     "nvim-zh/colorful-winsep.nvim",
+    --     config = true,
+    --     event = { "WinLeave" },
+    -- },
 
     {
         "OXY2DEV/helpview.nvim",

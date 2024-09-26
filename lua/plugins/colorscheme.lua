@@ -14,6 +14,7 @@ return {
     {
         "catppuccin/nvim",
         opts = {
+            transparent_background = true,
             integrations = {
                 lsp_trouble = true,
                 dadbod_ui = true,
