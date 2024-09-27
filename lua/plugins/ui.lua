@@ -103,7 +103,7 @@ return {
                 left_trunc_marker = "",
                 right_trunc_marker = "",
                 separator_style = "thin",
-                -- always_show_bufferline = true,
+                always_show_bufferline = true,
                 offsets = {
                     {
                         filetype = "neo-tree",
@@ -111,18 +111,21 @@ return {
                         text_align = "center",
                         highlight = "FileExplorer",
                         padding = 0,
+                        separator = true,
                     },
                     {
                         filetype = "aerial",
                         text = "Symbol Outline",
                         text_align = "center",
                         padding = 0,
+                        separator = true,
                     },
                     {
                         filetype = "dbui",
                         text = "Databases",
                         text_align = "center",
                         padding = 0,
+                        seprator = true,
                     },
                 },
             },
