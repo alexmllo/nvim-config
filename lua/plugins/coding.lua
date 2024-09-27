@@ -9,12 +9,14 @@ return {
             opts.window = {
                 completion = {
                     border = "rounded",
-                    winhighlight = "Normal:Normal,FloatBorder:Normal,CursorLine:Visual,Search:None",
+                    winhighlight = "Normal:MyHighlight",
+                    winblend = 0,
                     scrollbar = false,
                 },
                 documentation = {
                     border = "rounded",
-                    winhighlight = "Normal:Normal,FloatBorder:Normal,CursorLine:Visual,Search:None",
+                    winhighlight = "Normal:MyHighlight",
+                    winblend = 0,
                     scrollbar = false,
                 },
             }

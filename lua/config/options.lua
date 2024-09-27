@@ -6,7 +6,7 @@ local go = vim.g
 
 opt.autoindent = true
 opt.hlsearch = true
-opt.cursorline = true
+opt.cursorline = false
 
 opt.shiftwidth = 4
 opt.tabstop = 4
