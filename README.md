@@ -2,7 +2,9 @@
 
 This repository contains my personal Neovim configuration built on top of LazyVim.
 
-![screenshot](./images/Screenshot.png)
+![Dashboard](./images/Dashboard.jpg)
+![cmp](./images/cmp.jpg)
+![which-key](./images/which-key.jpg)
 
 ## Installation
 
