@@ -1,8 +1,6 @@
 return {
     "mfussenegger/nvim-lint",
     opts = {
-        linters_by_ft = {
-            c = { "cpplint" },
-        },
+        linters_by_ft = {},
     },
 }
