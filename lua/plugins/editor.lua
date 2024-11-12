@@ -53,6 +53,11 @@ return {
             win = {
                 border = "rounded",
             },
+            icons = {
+                rules = {
+                    { plugin = "copilot.lua", icon = " ", color = "orange" },
+                },
+            },
         },
     },
 }
